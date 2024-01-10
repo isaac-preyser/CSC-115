@@ -99,7 +99,7 @@ public class LoopExercises {
 		int result = 0;
 		int expected = 0;
 
-		/*
+		
 		result = sumToN(1);
 		expected = 1;
 		System.out.println("\ncalling sumToN(1)");
@@ -117,7 +117,7 @@ public class LoopExercises {
 		System.out.println("\ncalling sumToN(7)");
 		System.out.println("result: " + result);
 		System.out.println("expected: " + expected);
-		*/
+		
 	}
 	
 	/*
@@ -129,6 +129,13 @@ public class LoopExercises {
 	 */
 	 
 	// Write the sumToN method here
+	public static int sumToN(int n){
+		int sum = 0;
+		for (int i = n; i > 0; i--){
+			sum += i;
+		}
 
+		return sum;
+	}
 
 }
