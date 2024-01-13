@@ -31,7 +31,7 @@ public class A1Tester {
 		/* Uncomment the method call below when you have finished isPrime
 		 * You will need to write tests for this method 
 		 */
-		testGreatestCommonDenominator();
+		//testGreatestCommonDenominator();
 
 
 
@@ -40,10 +40,10 @@ public class A1Tester {
 		/* Some examples to demonstrate how to intialize and test arrays. 
 		 * The printArrays method have been completed for you.
 		 */
-		// printArrayExample();
-		// testSumArray();
+		//printArrayExample();
+		//testSumArray();
 
-		// testContains();
+		 //testContains();
 		// testCountMatches();
 
 	}
@@ -144,7 +144,7 @@ public class A1Tester {
 	public static void testIsPrime() {
 		boolean result = false;
 		boolean expected = false;
-/*
+
 		System.out.println("Testing isPrime(2)");
 		result = A1Exercises.isPrime(2);
 		expected = true;
@@ -180,7 +180,52 @@ public class A1Tester {
 		expected = false;
 		System.out.println("Expected: "+expected);
 		System.out.println("Returned: "+result);
-*/
+
+
+		// Write more tests here
+		System.out.println("Testing isPrime(1)");
+		result = A1Exercises.isPrime(1);
+		expected = true;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+		
+		System.out.println("Testing isPrime(0)");
+		result = A1Exercises.isPrime(0);
+		expected = true; //is zero prime? 
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing isPrime(-1)");
+		result = A1Exercises.isPrime(-1);
+		expected = true;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing isPrime(4)");
+		result = A1Exercises.isPrime(4);
+		expected = false;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing isPrime(9)");
+		result = A1Exercises.isPrime(9);
+		expected = false;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		//test  other primes
+		System.out.println("Testing isPrime(2)");
+		result = A1Exercises.isPrime(2);
+		expected = true;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing isPrime(3)");
+		result = A1Exercises.isPrime(3);
+		expected = true;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
 	}
 	
 	public static void testGreatestCommonDenominator() {
@@ -194,6 +239,40 @@ public class A1Tester {
 		System.out.println("Expected: "+expected);
 		System.out.println("Returned: "+result);
 */
+
+		//write my tests below!
+		System.out.println("Testing greatestCommonDenominator(1, 1)");
+		result = A1Exercises.greatestCommonDenominator(1, 1);
+		expected = 1;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing greatestCommonDenominator(2, 1)");
+		result = A1Exercises.greatestCommonDenominator(2, 1);
+		expected = 1;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		//test large values
+		System.out.println("Testing greatestCommonDenominator(100, 1)");
+		result = A1Exercises.greatestCommonDenominator(100, 1);
+		expected = 1;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing greatestCommonDenominator(100, 2)");
+		result = A1Exercises.greatestCommonDenominator(100, 2);
+		expected = 2;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing greatestCommonDenominator(100, 25)");
+		result = A1Exercises.greatestCommonDenominator(100, 25);
+		expected = 25;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		
 	}
 	
 	public static void printArrayExample() {
@@ -215,7 +294,7 @@ public class A1Tester {
 		int[] array1 = {8};
 		int[] array2 = {2, 3, 2, 0};
 		int[] array3 = {-1, 2, 4, 1, 3};
-/*
+
 		System.out.println("Testing sumArray with an empty array");
 		result = A1Exercises.sumArray(array0);
 		expected = 0;
@@ -239,7 +318,24 @@ public class A1Tester {
 		expected = -1+2+4+1+3;
 		System.out.println("Expected: "+expected);
 		System.out.println("Returned: "+result);
-*/
+
+		//MORE TESTS MUHAHAHAHAHHAAHAHAH
+		array3 = new int[]{0, 0, 0, 0, 0};
+		System.out.println("Testing sumArray with {0, 0, 0, 0, 0}");
+		result = A1Exercises.sumArray(array3);
+		expected = 0+0+0+0+0;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+		
+
+		array3 = new int[]{1, 1, 1, 1, 1};
+		System.out.println("Testing sumArray with {1, 1, 1, 1, 1}");
+		result = A1Exercises.sumArray(array3);
+		expected = 1+1+1+1+1;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+
 	}	
     
 	public static void testContains() {
@@ -248,7 +344,7 @@ public class A1Tester {
 		int[] arr0 = {};
 		int[] arr1 = {2, 3, 2, 0};
 		int[] arr2 = {-1, 2, 4, 1, 3};
-/*
+
 		System.out.println("Testing contains with an empty array");
 		result = A1Exercises.contains(arr0, 2);
 		expected = false;
@@ -290,7 +386,22 @@ public class A1Tester {
 		expected = false;
 		System.out.println("Expected: "+expected);
 		System.out.println("Returned: "+result);
-*/
+
+		//MORE TESTS MUHAHAHAHAHHAAHAHAH
+
+		System.out.println("Testing contains(arr2, -1)");
+		result = A1Exercises.contains(arr2, -1);
+		expected = true;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing contains(arr2, 1)");
+		result = A1Exercises.contains(arr2, 1);
+		expected = true;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+
 	}
 	
 	public static void testCountMatches() {
@@ -298,14 +409,33 @@ public class A1Tester {
 		int expected = 0;
 		int[] arr1 = {2, 3, 2, 0};
 		// add more arrays
-/*
+
 		System.out.println("Testing countMatches(arr1, 1)");
 		result = A1Exercises.countMatches(arr1, 1);
 		expected = 0;
 		System.out.println("Expected: "+expected);
 		System.out.println("Returned: "+result);
-*/		
+
+		System.out.println("Testing countMatches(arr1, 2)");
+		result = A1Exercises.countMatches(arr1, 2);
+		expected = 2;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+		System.out.println("Testing countMatches(arr1, 3)");
+		result = A1Exercises.countMatches(arr1, 3);
+		expected = 1;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
 		// Write more tests here
+		System.out.println("Testing countMatches(arr1, 0)");
+		result = A1Exercises.countMatches(arr1, 0);
+		expected = 1;
+		System.out.println("Expected: "+expected);
+		System.out.println("Returned: "+result);
+
+
 
 	}  
 }
