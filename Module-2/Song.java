@@ -28,6 +28,9 @@ public class Song {
 	//  - what happens when you try to access them from Song class?
 	// able to access private fields from inside the class...
 
+
+
+
 	// 5. add getters and setters for fields
 	public String getTitle() {
 		return title;
@@ -56,15 +59,21 @@ public class Song {
 
 	// 6. how do we initialize a song with data upon creation?
 	//  - add a custom constructor
-	public Song createSong(String title, String artist, int yearReleased, String album){
-		Song song = new Song();
-		song.setTitle(title);
-		song.setArtist(artist);
-		song.setYearReleased(yearReleased);
-		song.setAlbum(album);
-		return song;
+	public Song( String title, String artist, int yearReleased, String album){
+		this.title = title;
+		this.artist = artist;
+		this.yearReleased = yearReleased;
+		this.album = album;
 	}
 
+	public Song createSong(String title, String artist, int yearReleased, String album){
+		this.title = title;
+		this.artist = artist;
+		this.yearReleased = yearReleased;
+		this.album = album;
+		return this;
+	} // I have no idea why you would do this 
+	
 	// 7. add a toString method
 	//  - takes no arguments and returns a String
 	//    representing this object

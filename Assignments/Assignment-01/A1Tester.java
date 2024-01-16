@@ -3,10 +3,44 @@
  * A1Tester
  * A class to test the methods in Assignment 1
  */
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+ 
 public class A1Tester {
     
 	private static int testPassCount = 0;
 	private static int testCount = 0;
+
+
+	@Test
+	public void testCalcPower_BaseTwo_ExponentZero() {
+		int result = A1Exercises.calcPower(2, 0);
+		int expected = 1;
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void testCalcPower_BaseTwo_ExponentThree() {
+		int result = A1Exercises.calcPower(2, 3);
+		int expected = 2*2*2;
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void testCalcPower_BaseFive_ExponentFour() {
+		int result = A1Exercises.calcPower(5, 4);
+		int expected = 5*5*5*5;
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void testCalcPower_BaseThirteen_ExponentTwo() {
+		int result = A1Exercises.calcPower(13, 2);
+		int expected = 13*13;
+		assertEquals(expected, result);
+	}
+
 
 	public static void main(String[] args) {
 

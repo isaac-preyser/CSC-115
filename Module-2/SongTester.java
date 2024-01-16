@@ -20,10 +20,8 @@ public class SongTester {
 		//ANSWER: array = new int[10];
 		/* 3a. declare and initialize two new blank songs */
 		//lets do this but with the constructor.
-		Song s1 = new Song();
-		Song s2 = new Song();
-		s1 = s1.createSong("Song 1", "Artist 1", 2000, "Album 1");
-		s2 = s2.createSong("Song 2", "Artist 2", 2001, "Album 2");
+		Song s1 = new Song("Song 1", "Artist 1", 2000, "Album 1");
+		Song s2 = new Song("Song 2", "Artist 2", 2001, "Album 2");
 		//I think there is a way to do this with the constructor but I'm not sure how.
 
 
