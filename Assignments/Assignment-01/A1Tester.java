@@ -4,8 +4,11 @@
  * A class to test the methods in Assignment 1
  */
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import junit 
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+
  
 public class A1Tester {
     

@@ -4,6 +4,7 @@
         "scrollbar.shadow": "#00000000"
     },
     "java.project.sourcePaths": [
-        ".classpath"
+        ".classpath",
+        "Assignments/Assignment-01"
     ]
 }
