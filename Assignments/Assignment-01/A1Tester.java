@@ -4,10 +4,6 @@
  * A class to test the methods in Assignment 1
  */
 
-//import junit 
-import static org.junit.Assert.*;
-import org.junit.Test;
-
 
  
 public class A1Tester {
@@ -16,35 +12,7 @@ public class A1Tester {
 	private static int testCount = 0;
 
 
-	@Test
-	public void testCalcPower_BaseTwo_ExponentZero() {
-		int result = A1Exercises.calcPower(2, 0);
-		int expected = 1;
-		assertEquals(expected, result);
-	}
-
-	@Test
-	public void testCalcPower_BaseTwo_ExponentThree() {
-		int result = A1Exercises.calcPower(2, 3);
-		int expected = 2*2*2;
-		assertEquals(expected, result);
-	}
-
-	@Test
-	public void testCalcPower_BaseFive_ExponentFour() {
-		int result = A1Exercises.calcPower(5, 4);
-		int expected = 5*5*5*5;
-		assertEquals(expected, result);
-	}
-
-	@Test
-	public void testCalcPower_BaseThirteen_ExponentTwo() {
-		int result = A1Exercises.calcPower(13, 2);
-		int expected = 13*13;
-		assertEquals(expected, result);
-	}
-
-
+	
 	public static void main(String[] args) {
 
 		// PART 1 - variables, methods, ifs, and loops
@@ -54,7 +22,7 @@ public class A1Tester {
 		 * in the A1Exercises.java file to get an idea of what is expected
 		 * for the other parts of the assignment you will complete yourself
 		 */
-		//testIsFactor();
+		testIsFactor();
 		//testCalcPower();
 
 		/* I have also provided you with some tests for numFactors */

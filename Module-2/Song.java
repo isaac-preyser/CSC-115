@@ -85,6 +85,22 @@ public class Song {
 		output += "Album: " + this.album + "\n";
 		return output;
 	}
+
+	public Boolean equals(Song other){
+		if (this.title != other.getTitle()){
+			return false;
+		}
+		if (this.artist != other.getArtist()){
+			return false;
+		}
+		if (this.yearReleased != other.getYearReleased()){
+			return false;
+		}
+		if (this.album != other.getAlbum()){
+			return false;
+		}
+		return true;
+	}
 	
 	
    

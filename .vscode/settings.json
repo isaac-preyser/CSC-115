@@ -6,5 +6,6 @@
     "java.project.sourcePaths": [
         ".classpath",
         "Assignments/Assignment-01"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
