@@ -1,5 +1,5 @@
-// Name:
-// Student number:
+// Name: Isaac Preyser	
+// Student number: V01022512
 
 /*
  * A1Exercises
