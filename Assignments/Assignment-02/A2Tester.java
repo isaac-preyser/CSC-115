@@ -68,6 +68,9 @@ public class A2Tester {
 		displayResults(expectedName.equals(nameResult), "f2 constructor name");
 		displayResults(Arrays.equals(itemsResult,expectedItems), "f2 constructor items");
 
+
+
+
 	}
 	
 	public static void testMoneyRaised() {
@@ -109,6 +112,9 @@ public class A2Tester {
 		displayResults(result==expected, "money raised with nulls");
 		
 		// Write more tests here
+		
+
+		
 			
 	}
 	

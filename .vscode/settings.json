@@ -6,8 +6,9 @@
     "java.project.sourcePaths": [
         "misc",
         "Module-3",
+        "Labs/Lab-02",
         "Assignments/Assignment-01",
-        "Labs/Lab-02"
+        "Assignments/Assignment-02"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }
