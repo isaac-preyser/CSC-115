@@ -1,4 +1,4 @@
-package misc;
+
 
 public class Student {
 
@@ -8,6 +8,11 @@ public class Student {
     public Student(String id, int studentGrade) {
         sID = id;
         grade = studentGrade;
+    }
+
+    public Student() {
+        sID = "";
+        grade = -1;
     }
 
     public String getSID() {

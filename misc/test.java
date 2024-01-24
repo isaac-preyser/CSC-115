@@ -1,4 +1,4 @@
-package misc;
+
 public class test {
     public static void main(String[] args) {
         Student stdnt1 = new Student("V00123456", 91);
