@@ -209,6 +209,29 @@ public class A2Tester {
 		displayResults(result.equals(expected), "mostExpensive in f3");
 		
 		// add more tests here
+
+		// Test when there are no AuctionItems in the Fundraiser
+		Fundraiser f4 = new Fundraiser("Empty Fundraiser", new AuctionItem[0]);
+		result = f4.mostExpensive();
+		expected = null; // When there are no items, mostExpensive should return null
+		displayResults(result == expected, "mostExpensive in f4");
+
+		// Test when all AuctionItems have the same price
+		AuctionItem a9 = new AuctionItem("Item 4", 100, "Sam");
+		AuctionItem a10 = new AuctionItem("Item 5", 100, "Sam");
+		AuctionItem[] arr4 = {a9, a10};
+		Fundraiser f5 = new Fundraiser("Same Price Fundraiser", arr4);
+		result = f5.mostExpensive();
+		// When all items have the same price, mostExpensive could return any of them
+		// So we check if the result is in the array of items
+		boolean found = false;
+		for (AuctionItem item : arr4) {
+			if (item.equals(result)) {
+				found = true;
+				break;
+			}
+		}
+		displayResults(found, "mostExpensive in f5");
 		
 	}
 	
@@ -278,6 +301,19 @@ public class A2Tester {
 		displayResults(equal(result,expected), "added a4 to f3");
 		
 		// Add more tests here
+
+		//reset f3 to its original state
+		f3 = new Fundraiser("Team Fundraiser", arr2);
+
+		// Test adding null to a Fundraiser
+		f3.addToFundraiser(null);
+		result = f3.getItems();
+		expected = arr2;
+		displayResults(equal(result,expected), "added null to f3");
+		//print contents of f3, and the expected array. 
+		// System.out.println("f3: " + Arrays.toString(result));
+		// System.out.println("expected: " + Arrays.toString(expected));
+
 		
 	}
 	
@@ -330,6 +366,21 @@ public class A2Tester {
 		displayResults(result==expected, "total money raised in fundraisers2");
 		
 		// add more tests here
+
+		// Test when there are no Fundraisers in the array
+		Fundraiser[] fundraisers3 = {};
+		result = A2Exercises.totalMoneyRaised(fundraisers3);
+		expected = 0;
+		displayResults(result==expected, "total money raised in empty array of fundraisers");
+
+		// Test when there are no AuctionItems in the Fundraisers
+		Fundraiser[] fundraisers4 = {f0a, f0b};
+		result = A2Exercises.totalMoneyRaised(fundraisers4);
+		expected = 0;
+		displayResults(result==expected, "total money raised in fundraisers4");
+
+
+
 		
 	}
 	
@@ -402,6 +453,39 @@ public class A2Tester {
 		displayResults(result==expected, "total spent by "+toFind+" in fundraisers2");
 		
 		// add more tests here
+
+		// Test when there are no Fundraisers in the array
+		Fundraiser[] fundraisers3 = {};
+		toFind = "Sam";
+		result = A2Exercises.totalSpent(fundraisers3, toFind);
+		expected = 0;
+		displayResults(result==expected, "total spent by "+toFind+" in empty array");
+
+		// Test when there are no AuctionItems in the Fundraisers
+		Fundraiser[] fundraisers4 = {f0a, f0b};
+		toFind = "Sam";
+		result = A2Exercises.totalSpent(fundraisers4, toFind);
+		expected = 0;
+		displayResults(result==expected, "total spent by "+toFind+" in fundraisers4");
+
+		// Test when the bidder has not spent any money
+		Fundraiser[] fundraisers5 = {f1};
+		toFind = "Lee";
+		result = A2Exercises.totalSpent(fundraisers5, toFind);
+		expected = 0;
+		displayResults(result==expected, "total spent by "+toFind+" in fundraisers5");
+		//print out result and expected values 
+		// System.out.println("result: " + result);
+		// System.out.println("expected: " + expected);
+
+		// Test when the bidder has spent money in some Fundraisers but not others
+		Fundraiser[] fundraisers6 = {f1, f2, f3};
+		toFind = "Lee";
+		result = A2Exercises.totalSpent(fundraisers6, toFind);
+		expected = 80;
+		displayResults(result==expected, "total spent by "+toFind+" in fundraisers6");
+
+
 		
 	}
 	

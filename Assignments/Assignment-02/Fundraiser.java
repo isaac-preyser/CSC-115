@@ -39,6 +39,7 @@ public class Fundraiser {
 	 */
 	public int moneyRaised() {
 		int total = 0;
+		//if the list is null, return 0
 		if (this.items == null){
 			return 0;
 		}
@@ -46,14 +47,11 @@ public class Fundraiser {
 		if (this.items.length == 0){
 			return 0;
 		}
-		//if the list is null, return 0
 		
-
-
+		//if the list is not null or empty, add the highest bid of each item to the total
 		for (int i = 0; i < this.items.length; i++){
 			total += this.items[i].getHighestBid();
 		}
-
 
 		return total; 
 	}
@@ -65,6 +63,7 @@ public class Fundraiser {
 	 * Returns: int - the total money spent by name
 	 */
 	public int moneySpent(String name) {
+		//if the list is null, return 0
 		if (this.items == null){
 			return 0;
 		}
@@ -74,14 +73,16 @@ public class Fundraiser {
 		}
 
 		int total = 0;
+		//if the list is not null or empty, begin the loop.
 		for (int i = 0; i < this.items.length; i++){
+			//if the bidder name is the same as the name, add the highest bid to the total
 			if (this.items[i].getBidderName().equals(name)){
 				total += this.items[i].getHighestBid();
 			}
 		}
 
 
-		return total; // so it compiles
+		return total; 
 	}
 	
 	/* 
@@ -91,6 +92,7 @@ public class Fundraiser {
 	 * Preconditions: items is not null, and items.length > 0
 	 */
 	public AuctionItem mostExpensive() {
+		//if the list is null, return null
 		if (this.items == null){
 			return null;
 		}
@@ -99,12 +101,12 @@ public class Fundraiser {
 		if (this.items.length == 0){
 			return null;
 		}
-		//if the list is null, return null
-		
-
 		
 		AuctionItem mostExpensive = items[0];
+
+		//if the list is not null or empty, begin the loop.
 		for (int i = 0; i < this.items.length; i++){
+			//if the current item is more expensive than the most expensive, set it as the most expensive
 			if (this.items[i].getHighestBid() > mostExpensive.getHighestBid()){
 				mostExpensive = this.items[i];
 			}
@@ -121,7 +123,11 @@ public class Fundraiser {
 	 */
 	public void addToFundraiser(AuctionItem newItem) {
 		
-	
+		//if the item is null, add nothing and return the existing list. 
+		if (newItem == null){
+			return;
+		}
+		
 		//if the list is null, create a new array of size 1 and add the new item to it
 		if (this.items == null){
 			AuctionItem[] newArray = new AuctionItem[1];
@@ -137,11 +143,13 @@ public class Fundraiser {
 			return;
 		}
 		
-		//if the list is not null or empty, add the new item to the end of the array
+		//if the list is not null or empty, create a new array of size 1 larger than the existing array
 		AuctionItem[] newArray = new AuctionItem[this.items.length + 1];
+		//loop over the existing array and add each item to the new array
 		for (int i = 0; i < this.items.length; i++){
 			newArray[i] = this.items[i];
 		}
+		//add the new item to the end of the new array
 		newArray[this.items.length] = newItem;
 		this.items = newArray;
 		return;
