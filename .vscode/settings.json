@@ -7,8 +7,9 @@
         "misc",
         "Module-3",
         "Labs/Lab-02",
+        "Assignments/Assignment-02",
         "Assignments/Assignment-01",
-        "Assignments/Assignment-02"
+        "Module-4"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }
