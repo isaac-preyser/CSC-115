@@ -49,7 +49,7 @@ public class A1Exercises {
 	 */
 	public static int numFactors(int n) {
 		int result = 1; //all numbers divide by zero, but we can't check it. (it makes bad errors for our factor checker.)
-		// TODO: add code to finish the method implementation
+		// 
 		for (int i = 1; i < n; i++){
 			if(isFactor(n, i)){
 				result++;
@@ -71,7 +71,7 @@ public class A1Exercises {
 	 *
 	 * HINT: This method can be completed in 1 line.
 	 */
-	// TODO: write the isPrime method here
+	
 	public static boolean isPrime(int n){
 		return (numFactors(n) <= 2); //more than two factors means the number is not prime. 
 	}
@@ -83,7 +83,7 @@ public class A1Exercises {
 	 * Returns: int the largest integer that divides x and y
 	 * Pre-conditions: x, y > 0
 	 */
-	// TODO: write the greatestCommonDenominator method here
+	
 	public static int greatestCommonDenominator(int x, int y){
 		int largest = x; 
 		if (largest < y) {largest = y;} //if x < y, make y the larger number. 
@@ -122,7 +122,7 @@ public class A1Exercises {
 	 * Returns: int - sum of all values in the array
 	 * Pre-conditions: the array is not null (but could be empty)
 	 */
-	// TODO: write the sumArray method here
+
 	public static int sumArray(int[] array){
 		//note: cannot complete this with java.util.Arrays. 
 		//question: is Array.length is a member of class Array, not in util. this is legal for use, right? 
@@ -142,7 +142,7 @@ public class A1Exercises {
 	 * Returns: boolean - true if value is found, false otherwise
 	 * Pre-conditions: the array is not null (but could be empty)
 	 */
-	// TODO: write the contains method here
+
 	public static boolean contains(int[] array, int x){
 		for (int i = 0; i < array.length; i++){
 			if (array[i] == x){
@@ -160,7 +160,6 @@ public class A1Exercises {
 	 * Returns: int - the number of times x is found in the array
 	 * Pre-conditions: the array is not null (but could be empty)
 	 */
-	// TODO: write the countMatches method here */
 	public static int countMatches(int[] array, int x){
 		int count = 0;
 		for (int i = 0; i < array.length; i++){
