@@ -1,5 +1,5 @@
-// Name:
-// Student number: v00
+// Name: Isaac Preyser		
+// Student number: v01022512
 
 public class A3LinkedList implements A3List {
 	private A3Node head;
@@ -13,7 +13,6 @@ public class A3LinkedList implements A3List {
 	}
 	
 	public void addFront(String s) {
-		// TODO: implement this
 		//PLAN :: 
 		//1. create a new node with the data s
 		//2. if the list is empty, set head and tail to the new node
@@ -38,7 +37,6 @@ public class A3LinkedList implements A3List {
 	}
 
 	public void addBack(String s) {
-		// TODO: implement this
 		//PLAN ::
 		//1. create a new node with the data s
 		//2. if the list is empty, set head and tail to the new node
@@ -72,7 +70,6 @@ public class A3LinkedList implements A3List {
 	}
 	
 	public void removeFront() {
-		// TODO: implement this
 		//PLAN ::
 		//1. if the list is empty, return
 		//2. if the list has one element, set head and tail to null
@@ -97,7 +94,28 @@ public class A3LinkedList implements A3List {
 	}
 	
 	public void removeBack() {
-		// TODO: implement this
+		
+
+		//PLAN ::
+		//1. if the list is empty, return
+		//2. if the list has one element, set head and tail to null
+		// else, set the tail to the current tail's prev. set the prev's next to null
+		if(isEmpty()){
+			return;
+		}
+		else if (length == 1){
+			head = null;
+			tail = null;
+		}
+		else{
+			tail = tail.getPrev();
+			tail.setNext(null);
+		}
+
+		this.length--;
+		return;
+
+
 	}
 	
 	
@@ -107,13 +125,102 @@ public class A3LinkedList implements A3List {
 	//////////////////
 	
 	public void removeMiddle() {
-		// TODO: implement this
+		// PLAN
+		// 1. if the list is empty, return
+		// 2. if number of elements is even, remove the two middle elements
+		// 3. if number of elements is odd, remove the middle element
+		// 4. decrement length by either 0, 1, or 2, depending on the case. 
+
+		if(this.isEmpty()){
+			return;
+		}
+
+		if(this.length == 1){
+			head = null;
+			tail = null;
+			return;
+		}
+
+		if(this.length == 2){
+			//technically, both are "in the middle". 
+			//remove both
+			head = null;
+			tail = null; 
+			return;
+		}
+
+		A3Node temp = head;
+
+		for (int i = 0; i < length/2; i++){
+			temp = temp.getNext();
+		}
+
+		Boolean isEven = (length % 2 == 0);
+
+		if (isEven){
+			//even length. we must remove the current node, and the previous one too. 
+			//temp is the 2nd item to remove; also need to remove temp-1. 
+			A3Node remove2 = temp.getPrev(); 
+			
+
+			remove2.getPrev().setNext(temp.getNext());
+			temp.getNext().setPrev(remove2.getPrev());
+			
+			remove2 = null;
+
+		} else if (!isEven){
+			//odd length. remove only the current node, and perform the following switch: 
+			temp.getPrev().setNext(temp.getNext()); //(set the previous item to be pointing at the "next" item)
+			temp.getNext().setPrev(temp.getPrev()); // set the next item to be pointing at the "prev" item
+		}
+
+		temp = null; 
+		System.gc(); //free up now nulled memory
+
+
+		return;
+		
 	}
-	
 	
 	public void interleave(A3LinkedList other) {
 		// TODO: implement this
+		//essentially, for every second item in the list, swap the items in listA and listB. 
+		
+		//every odd node should point to the other list's n+1 node.
+		//in the other list, every even node should point to the other lists n+1 node.
+		//essentially, given two lists: 
+		//listA: a1, a2, a3, a4, a5
+		//listB: b1, b2, b3, b4, b5
+		//result: listA: a1, b2, a3, b4, a5
+		//result: listB: b1, a2, b3, a4, b5
+
+		if (other.isEmpty() || this.isEmpty()){
+			return;
+		}
+
+		A3Node tempA = this.head;
+		A3Node tempB = other.head;
+		A3Node tempC = null;
+
+		while (tempA != null && tempB != null){
+			tempC = tempA.getNext();
+			tempA.setNext(tempB.getNext());
+			tempB.setNext(tempC);
+
+			tempA = tempA.getNext();
+			tempB = tempB.getNext();
+
+		}
+
+		
+
+		return;
 	}
+
+		
+
+		
+
 	
 	
 	

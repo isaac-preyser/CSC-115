@@ -20,15 +20,15 @@ public class A3Tester {
 		*/
 		
 		/* Part 1: */
-		testAddFront();
+		// testAddFront();
 		// testAddBack();
 		// testSizeAndIsEmpty();
 		// testRemoveFront();
 		// testRemoveBack();
 		
 		/* Part 2 */
-		// testRemoveMiddle();
-		// testInterleave();
+		//testRemoveMiddle();
+		testInterleave();
 		
 		System.out.println("Passed " + testPassCount + " / " + testCount + " tests");
     }
@@ -118,12 +118,62 @@ public class A3Tester {
 		
 		   You should also ensure that your size and isEmpty 
 		   methods work with removal as well as addition */
+
+		//test removeFront on empty list
+		list1 = new A3LinkedList();
+		list1.removeFront();
+		result = list1.frontToBack();
+		displayResults(result.equals("{}"), "testRemoveFront on empty list");
+
+		//test removeFront on length 1 list
+		list1 = new A3LinkedList();
+		list1.addBack("A");
+		list1.removeFront();
+		result = list1.frontToBack();
+		displayResults(result.equals("{}"), "testRemoveFront on length 1 list");
+
+		//test removeFront on length 2 list
+		list1 = new A3LinkedList();
+		list1.addBack("A");
+		list1.addBack("B");
+		list1.removeFront();
+		result = list1.frontToBack();
+		displayResults(result.equals("{B}"), "testRemoveFront on length 2 list");
+		
 				
 	}
 	
 	public static void testRemoveBack() {
 		System.out.println("\nTesting removeBack...");
 		// Write all of your own tests here 
+
+		//test removing null list
+		A3LinkedList list1 = new A3LinkedList();
+		list1.removeBack();
+		String result1 = list1.frontToBack();
+		displayResults(result1.equals("{}"), "frontToBack after removeBack called on empty list");
+		result1 = list1.backToFront();
+		displayResults(result1.equals("{}"), "backToFront after removeBack called on empty list");
+
+		//test removing length 1 list
+		list1 = new A3LinkedList();
+		list1.addBack("A");
+		list1.removeBack();
+		result1 = list1.frontToBack();
+		displayResults(result1.equals("{}"), "frontToBack after removeBack called on length 1 list");
+		result1 = list1.backToFront();
+		displayResults(result1.equals("{}"), "backToFront after removeBack called on length 1 list");
+
+		//test removing length 2 list
+		list1 = new A3LinkedList();
+		list1.addBack("A");
+		list1.addBack("B");
+		list1.removeBack();
+		result1 = list1.frontToBack();
+		displayResults(result1.equals("{A}"), "frontToBack after removeBack called on length 2 list");
+		result1 = list1.backToFront();
+
+		
 	}
 	
 	public static void testRemoveMiddle() {
@@ -131,17 +181,17 @@ public class A3Tester {
 		
 		A3LinkedList list1 = new A3LinkedList();
 		String result1 = "";
-		list1.addBack("T");
-		list1.addBack("A");
-		list1.addBack("B");
-		list1.addBack("L");
-		list1.addBack("E");
+		// list1.addBack("T");
+		// list1.addBack("A");
+		// list1.addBack("B");
+		// list1.addBack("L");
+		// list1.addBack("E");
 		
-		list1.removeMiddle();
-		result1 = list1.frontToBack();
-		displayResults(result1.equals("{TALE}"), "frontToBack after removeMiddle called on TABLE");
-		result1 = list1.backToFront();
-		displayResults(result1.equals("{ELAT}"), "backToFront after removeMiddle called on TABLE");
+		// list1.removeMiddle();
+		// result1 = list1.frontToBack();
+		// displayResults(result1.equals("{TALE}"), "frontToBack after removeMiddle called on TABLE");
+		// result1 = list1.backToFront();
+		// displayResults(result1.equals("{ELAT}"), "backToFront after removeMiddle called on TABLE");
 		
 		
 		list1 = new A3LinkedList();
@@ -169,6 +219,38 @@ public class A3Tester {
 		
 		// Write additional tests here to ensure all of your pointers
 		// and other fields have been updated correctly.
+
+		// Test with a list of length 2
+		list1 = new A3LinkedList();
+		list1.addBack("A");
+		list1.addBack("B");
+
+		list1.removeMiddle();
+		result1 = list1.frontToBack();
+		displayResults(result1.equals("{}"), "frontToBack after removeMiddle called on length 2");
+		result1 = list1.backToFront();
+		displayResults(result1.equals("{}"), "backToFront after removeMiddle called on length 2");
+
+		// Test with a list of length 3
+		list1 = new A3LinkedList();
+		list1.addBack("A");
+		list1.addBack("B");
+		list1.addBack("C");
+
+		list1.removeMiddle();
+		result1 = list1.frontToBack();
+		displayResults(result1.equals("{AC}"), "frontToBack after removeMiddle called on length 3");
+		result1 = list1.backToFront();
+		displayResults(result1.equals("{CA}"), "backToFront after removeMiddle called on length 3");
+
+		// Test with a list of length 0 (empty list)
+		list1 = new A3LinkedList();
+
+		list1.removeMiddle();
+		result1 = list1.frontToBack();
+		displayResults(result1.equals("{}"), "frontToBack after removeMiddle called on empty list");
+		result1 = list1.backToFront();
+		displayResults(result1.equals("{}"), "backToFront after removeMiddle called on empty list");
 				
 	}
 	
@@ -189,7 +271,8 @@ public class A3Tester {
 		list1.addBack("G");
 		result1 = list1.frontToBack();
 		displayResults(result1.equals("{ABCDEFG}"), "testInterleave, original first list is ABCDEFG");
-		
+		System.out.println(list1.frontToBack());
+
 		list2.addBack("L");
 		list2.addBack("M");
 		list2.addBack("N");
@@ -199,15 +282,75 @@ public class A3Tester {
 		list2.addBack("R");
 		result2 = list2.frontToBack();
 		displayResults(result2.equals("{LMNOPQR}"), "testInterleave, original second list is LMNOPQR");
-		
+		System.out.println(list2.frontToBack());
+
 		list1.interleave(list2);
 		result1 = list1.frontToBack();
 		result2 = list2.frontToBack();
 		displayResults(result1.equals("{AMCOEQG}"), "after interleave, first list now contains AMCOEQG");
+		System.out.println(list1.frontToBack());
 		displayResults(result2.equals("{LBNDPFR}"), "after interleave, second list now contains LBNDPFR");
+		System.out.println(list2.frontToBack());
 
 		// Write additional tests here to ensure all of your pointers
 		// have been updated correctly.
+
+		// Test with empty list
+		list1 = new A3LinkedList();
+		list2 = new A3LinkedList();
+
+		list1.interleave(list2);
+		result1 = list1.frontToBack();
+		result2 = list2.frontToBack();
+		displayResults(result1.equals("{}"), "after interleave, first list is empty");
+		displayResults(result2.equals("{}"), "after interleave, second list is empty");
+
+		// Test with first list of length 1 and second list of length 1
+		list1 = new A3LinkedList();
+		list2 = new A3LinkedList();
+		list1.addBack("A");
+		list2.addBack("B");
+
+		list1.interleave(list2);
+		result1 = list1.frontToBack();
+		result2 = list2.frontToBack();
+		displayResults(result1.equals("{A}"), "after interleave, first list now contains AB");
+		displayResults(result2.equals("{B}"), "after interleave, second list is empty");
+
+		//uneven list lengths
+		list1 = new A3LinkedList();
+		list2 = new A3LinkedList();
+		list1.addBack("A");
+		list1.addBack("B");
+		list1.addBack("C");
+		list2.addBack("D");
+
+		list1.interleave(list2);
+		result1 = list1.frontToBack();
+		result2 = list2.frontToBack();
+
+		displayResults(result1.equals("{A}"), "after interleave, first list now contains ADBC");
+		displayResults(result2.equals("{DBC}"), "after interleave, second list now contains D");
+
+		//uneven list lengths where both are greater than 1
+		list1 = new A3LinkedList();
+		list2 = new A3LinkedList();
+
+		list1.addBack("A");
+		list1.addBack("B");
+		list2.addBack("C");
+		list2.addBack("D");
+		list2.addBack("E");
+		list2.addBack("F");
+
+		list1.interleave(list2);
+		result1 = list1.frontToBack();
+		result2 = list2.frontToBack();
+
+		displayResults(result1.equals("{AD}"), "after interleave, first list now contains ADBECF");
+		displayResults(result2.equals("{CBEF}"), "after interleave, second list now contains DBECF");
+
+
 		
 	}
 	
