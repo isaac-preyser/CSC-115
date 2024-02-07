@@ -15,8 +15,8 @@ public class Lab4Tester {
     
 	public static void main(String[] args) {
 
-		// testListAddSize();
-		// testListAddRemove();
+		testListAddSize();
+		testListAddRemove();
 		testListContains();
 
 		System.out.println("Passed " + testPassCount + " / " + testCount + " tests");

@@ -138,6 +138,7 @@ public class A3LinkedList implements A3List {
 		if(this.length == 1){
 			head = null;
 			tail = null;
+			length = 0;
 			return;
 		}
 
@@ -145,7 +146,8 @@ public class A3LinkedList implements A3List {
 			//technically, both are "in the middle". 
 			//remove both
 			head = null;
-			tail = null; 
+			tail = null;
+			length = 0; 
 			return;
 		}
 
@@ -167,11 +169,14 @@ public class A3LinkedList implements A3List {
 			temp.getNext().setPrev(remove2.getPrev());
 			
 			remove2 = null;
+			length -= 2;
 
 		} else if (!isEven){
 			//odd length. remove only the current node, and perform the following switch: 
 			temp.getPrev().setNext(temp.getNext()); //(set the previous item to be pointing at the "next" item)
 			temp.getNext().setPrev(temp.getPrev()); // set the next item to be pointing at the "prev" item
+
+			length--;
 		}
 
 		temp = null; 
