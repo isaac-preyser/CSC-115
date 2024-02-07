@@ -53,6 +53,28 @@ public class A3Tester {
 		displayResults(result.equals("{JAVA}"), "testAddFront");
 		result = list1.backToFront();
 		displayResults(result.equals("{AVAJ}"), "testAddFront");
+
+
+		//test backToFront
+
+		//test addFront on empty list
+		list1 = new A3LinkedList();
+		list1.addFront("A");
+		result = list1.frontToBack();
+		displayResults(result.equals("{A}"), "testAddFront on empty list");
+		result = list1.backToFront();
+		displayResults(result.equals("{A}"), "testAddFront on empty list");
+
+		//test addFront on length 1 list
+		list1 = new A3LinkedList();
+		list1.addFront("A");
+		list1.addFront("B");
+		result = list1.frontToBack();
+		displayResults(result.equals("{BA}"), "testAddFront on length 1 list");
+		result = list1.backToFront();
+		displayResults(result.equals("{AB}"), "testAddFront on length 1 list");
+
+		
 	}
 	
 	public static void testAddBack() {
@@ -139,6 +161,17 @@ public class A3Tester {
 		list1.removeFront();
 		result = list1.frontToBack();
 		displayResults(result.equals("{B}"), "testRemoveFront on length 2 list");
+
+		//test removeFront on length 3 list
+		list1 = new A3LinkedList();
+		list1.addBack("A");
+		list1.addBack("B");
+		list1.addBack("C");
+		list1.removeFront();
+		result = list1.frontToBack();
+		displayResults(result.equals("{BC}"), "testRemoveFront on length 3 list");
+
+
 		
 				
 	}
@@ -292,6 +325,17 @@ public class A3Tester {
 		displayResults(result2.equals("{LBNDPFR}"), "after interleave, second list now contains LBNDPFR");
 		System.out.println(list2.frontToBack());
 
+		//test back to front
+		result1 = list1.backToFront();
+		result2 = list2.backToFront();
+
+		displayResults(result1.equals("{GQEOCMA}"), "after interleave, first list now contains GQEOCMA");
+		System.out.println(list1.backToFront());
+		displayResults(result2.equals("{RFPDNBL}"), "after interleave, second list now contains RFPDNBL");
+		System.out.println(list2.backToFront());
+
+
+
 		// Write additional tests here to ensure all of your pointers
 		// have been updated correctly.
 
@@ -304,6 +348,15 @@ public class A3Tester {
 		result2 = list2.frontToBack();
 		displayResults(result1.equals("{}"), "after interleave, first list is empty");
 		displayResults(result2.equals("{}"), "after interleave, second list is empty");
+
+		//test back to front
+		result1 = list1.backToFront();
+		result2 = list2.backToFront();
+
+		displayResults(result1.equals("{}"), "after interleave, first list is empty");
+		displayResults(result2.equals("{}"), "after interleave, second list is empty");
+
+
 
 		// Test with first list of length 1 and second list of length 1
 		list1 = new A3LinkedList();
@@ -332,6 +385,16 @@ public class A3Tester {
 		displayResults(result1.equals("{A}"), "after interleave, first list now contains ADBC");
 		displayResults(result2.equals("{DBC}"), "after interleave, second list now contains D");
 
+
+		//test back to front
+		result1 = list1.backToFront();
+		result2 = list2.backToFront();
+
+		displayResults(result1.equals("{A}"), "after interleave, contains: " + result1 +  " should contain: A");
+		System.out.println(list1.backToFront());
+		displayResults(result2.equals("{CBD}"), "after interleave, second list contains:" + result2 + " Should contain: CBD");
+		System.out.println(list2.backToFront());
+
 		//uneven list lengths where both are greater than 1
 		list1 = new A3LinkedList();
 		list2 = new A3LinkedList();
@@ -351,7 +414,101 @@ public class A3Tester {
 		displayResults(result2.equals("{CBEF}"), "after interleave, second list now contains DBECF");
 
 
+		//more tests
+
+		list1 = new A3LinkedList();
+		list2 = new A3LinkedList();
+
+		//make a list from A to G
+		for (char c = 'A'; c <= 'G'; c++) {
+			list1.addBack(c + "");
+		}
+
+		//make a list from 1 to 7
+		for (int i = 1; i <= 7; i++) {
+			list2.addBack(i + "");
+		}
+
+		list1.interleave(list2);
+		result1 = list1.frontToBack();
+		result2 = list2.frontToBack();
+
+		//should equal a2c4e6g 1b3d5f7
+
+		displayResults(result1.equals("{A2C4E6G}"), "after interleave, first list now contains A2C4E6G");
+		displayResults(result2.equals("{1B3D5F7}"), "after interleave, second list now contains 1B3D5F7");
+
+		//test back to front
+		result1 = list1.backToFront();
+		result2 = list2.backToFront();
+
+		displayResults(result1.equals("{G6E4C2A}"), "after interleave, first list now contains G6E4C2A");
+		System.out.println(list1.backToFront());
+		displayResults(result2.equals("{7F5D3B1}"), "after interleave, second list now contains 7F5D3B1");
+		System.out.println(list2.backToFront());
+
+
+		//do a similar test, but with uneven list lengths. 
+		list1 = new A3LinkedList();
+		list2 = new A3LinkedList();
+
+		//make a list from A to G
+		for (char c = 'A'; c <= 'G'; c++) {
+			list1.addBack(c + "");
+		}
+
+		//make a list from 1 to 5
+		for (int i = 1; i <= 5; i++) {
+			list2.addBack(i + "");
+		}
+
+		list1.interleave(list2);
+		result1 = list1.frontToBack();
+		result2 = list2.frontToBack();
+
+		//should equal a2c4e 1b3d5fg
+
+		System.out.println(result1);
+		System.out.println(result2);
+
+		displayResults(result1.equals("{A2C4E}"), "after interleave, first list now contains A2C4EFG");
+		displayResults(result2.equals("{1B3D5FG}"), "after interleave, second list now contains 1B3D5");
 		
+
+
+		//test a really long String
+		list1 = new A3LinkedList();
+		list2 = new A3LinkedList();
+
+		//make a list from A to Z
+		for (char c = 'A'; c <= 'Z'; c++) {
+			list1.addBack(c + "");
+		}
+
+		//make a list from 1 to 26
+		for (int i = 1; i <= 26; i++) {
+			list2.addBack(i + "");
+		}
+
+		list1.interleave(list2);
+		result1 = list1.frontToBack();
+		result2 = list2.frontToBack();
+
+		System.out.println(result1);
+		System.out.println(result2);
+
+		//list 1 should be A2C4E6G8I10K12M14O16Q18S20U22W24Y26
+		//list 2 should be 1B3D5F7H9J11L13N15P17R19T21V23X25Z
+
+		displayResults(result1.equals("{A2C4E6G8I10K12M14O16Q18S20U22W24Y26}"), "after interleave, first list now contains A2C4E6G8I10K12M14O16Q18S20U22W24Y");
+		displayResults(result2.equals("{1B3D5F7H9J11L13N15P17R19T21V23X25Z}"), "after interleave, second list now contains 1B3D5F7H9J11L13N15P17R19T21V23X25Z");
+
+		//test back to front
+		result1 = list1.backToFront();
+		result2 = list2.backToFront();
+		
+		displayResults(result1.equals("{26Y24W22U20S18Q16O14M12K10I8G6E4C2A}"), "after interleave, first list now contains Y24W22U20S18Q16O14M12K10I8G6E4C2A");
+		displayResults(result2.equals("{Z25X23V21T19R17P15N13L11J9H7F5D3B1}"), "after interleave, second list now contains Z25X23V21T19R17P15N13L11J9H7F5D3B1");
 	}
 	
 	public static void displayResults (boolean passed, String testName) {

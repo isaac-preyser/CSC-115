@@ -5,11 +5,12 @@
     },
     "java.project.sourcePaths": [
         "misc",
+        "Module-4",
         "Module-3",
         "Labs/Lab-03",
         "Assignments/Assignment-03",
         "Assignments/Assignment-01",
-        "Module-4"
+        "Labs/Lab-04"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }

@@ -186,6 +186,11 @@ public class A3LinkedList implements A3List {
 		// TODO: implement this
 		//essentially, for every second item in the list, swap the items in listA and listB. 
 		
+		//print out the lists: 
+		System.out.println("List A: " + this.frontToBack());
+		System.out.println("List B: " + other.frontToBack());
+
+
 		//every odd node should point to the other list's n+1 node.
 		//in the other list, every even node should point to the other lists n+1 node.
 		//essentially, given two lists: 
@@ -204,14 +209,84 @@ public class A3LinkedList implements A3List {
 
 		while (tempA != null && tempB != null){
 			tempC = tempA.getNext();
-			tempA.setNext(tempB.getNext());
-			tempB.setNext(tempC);
+			
+			//if tempB.getNext() is null, then we are at the end of the list. 
+			//we will identify the head of the list we are working on, and append the appropriate tail to the end of the list. 
+			if (tempB.getNext() == null){
+				//hold onto the node we are on, but walk backwards through the list to the head, and identify which list we are in. 
+				//then, set the tail of the list we are in to the node we are on. 
+				
+				//set the next of the current node to point at null
+				tempA.setNext(null);
 
+
+				A3Node temp = tempA;
+				while (temp.getPrev() != null){
+					temp = temp.getPrev();
+				}
+				if (temp == other.head){
+					//we are in the other list. 
+					//set the tail of the other list to the node we are on. 
+					other.tail = tempA;
+				} else if (temp == this.head){
+					//we are in the current list. 
+					//set the tail of the current list to the node we are on. 
+					this.tail = tempA;
+				}
+
+			} else {
+				tempA.setNext(tempB.getNext());
+				tempB.getNext().setPrev(tempA);
+			}
+			
+
+			//if tempC is null, then we are at the end of the list.
+			//we must walk backwards, starting at tempB
+			if (tempC == null){
+				//hold onto the node we are on, but walk backwards through the list to the head, and identify which list we are in. 
+				//then, set the tail of the list we are in to the node we are on. 
+				
+				//set the next of the current node to point at null
+				tempB.setNext(null);
+
+				A3Node temp = tempB;
+				while (temp.getPrev() != null){
+					temp = temp.getPrev();
+				}
+				if (temp == other.head){
+					//we are in the other list. 
+					//set the tail of the other list to the node we are on. 
+					other.tail = tempB;
+				} else if (temp == this.head){
+					//we are in the current list. 
+					//set the tail of the current list to the node we are on. 
+					this.tail = tempB;
+				}
+
+			} else {
+				tempB.setNext(tempC);
+				tempC.setPrev(tempB);
+			}
+			
+
+			//iterate "forward"
 			tempA = tempA.getNext();
 			tempB = tempB.getNext();
 
 		}
+		
+		//walk to the end of the list, and set the tail of the list to the last node.
+		while(tempA != null){
+			this.tail = tempA;
+			tempA = tempA.getNext();
+		}
 
+		while(tempB != null){
+			other.tail = tempB;
+			tempB = tempB.getNext();
+		}
+
+		
 		
 
 		return;
