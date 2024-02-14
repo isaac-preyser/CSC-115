@@ -7,10 +7,12 @@
         "misc",
         "Module-4",
         "Module-3",
+        "Labs/Lab-04",
         "Labs/Lab-03",
+        "Assignments/Assignment-04",
         "Assignments/Assignment-03",
         "Assignments/Assignment-01",
-        "Labs/Lab-04"
+        "Labs/Lab-05"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }
