@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class A4Exercises {
 
 	/*
@@ -8,13 +6,7 @@ public class A4Exercises {
 	 * Returns: int - the number of competitors in the given list
 	 */
 	public static int competitorsCount(List cList) {
-		int count = 0;
-		for (int i = 0; i < cList.size(); i++) {
-			Competitor c = (Competitor) cList.get(i); //just for testing. 
-			System.out.println(c.getName());
-			count++;
-		}
-		return count; 
+		return cList.size();
 	}
 	
 	/*
@@ -25,15 +17,12 @@ public class A4Exercises {
 	 */
 	public static int countScoresAboveX(List cList, int x) {
 		int count = 0;
-		
-		while(cList.next() != null) {
-			Competitor c = (Competitor) cList.get(0);
-			if(c.getScore() > x) {
-				System.out.println(c.getName());
+		for (int i = 0; i < cList.size(); i++) {
+			if (cList.get(i).getScore() > x) {
 				count++;
 			}
 		}
-		return count; 
+		return count;
 	}
 	
 	/*
@@ -44,22 +33,8 @@ public class A4Exercises {
 	 *                c is from the start of the list, or 
 	 *                -1 if c is not found in cList
 	 */
-	public static int distanceAway(List<E> cList, Competitor c) {
-		//while loop until we hit it, keep a count to know how many times we've gone through the loop
-
-		int count = 0;
-		while(cList.next() != null) {
-			Competitor current = cList.get();
-			if(current.equals(c)) {
-				return count;
-			}
-			count++;
-		}
-		return -1;
-
-		//built-in List<T> has an indexOf method, which is the same as this method
-
-		
+	public static int distanceAway(List cList, Competitor c) {
+		return cList.find(c); //double check that find indeed finds the first occurrence
 	}
 	
 	/*
@@ -76,15 +51,15 @@ public class A4Exercises {
 		if (cList.size() == 0) {
 			return "";
 		}
-		
-		Competitor best = cList.get(0);
+		int bestScore = cList.get(0).getScore();
+		String bestName = cList.get(0).getName();
 		for (int i = 1; i < cList.size(); i++) {
-			Competitor c = cList.get(i);
-			if (c.getScore() > best.getScore()) {
-				best = c;
+			if (cList.get(i).getScore() > bestScore) {
+				bestScore = cList.get(i).getScore();
+				bestName = cList.get(i).getName();
 			}
 		}
-		return best.getName();
+		return bestName;
 	}
 
 	/*
@@ -98,23 +73,15 @@ public class A4Exercises {
 	 * Note: Read through the assignment PDF for more information
 	 */
 	public static int numberTimesRecordBroken(List cList) {
-		// TODO: implement this
-		// 1. keep track of the highest score seen so far
-		// 2. keep track of the number of times a new highest score is found
-		// 3. traverse the list from left to right
-		// 4. update the highest score seen so far and the number of times a new highest score is found
-		// 5. return the number of times a new highest score is found
-		int highestScore = 0;
-		int numBroken = 0;
+		int count = 0;
+		int bestScore = 0;
 		for (int i = 0; i < cList.size(); i++) {
-			Competitor c = cList.get(i);
-			if (c.getScore() > highestScore) {
-				highestScore = c.getScore();
-				numBroken++;
+			if (cList.get(i).getScore() > bestScore) {
+				bestScore = cList.get(i).getScore();
+				count++;
 			}
-
 		}
-		return numBroken;
+		return count;
 	}
 		
 	/*
@@ -127,25 +94,31 @@ public class A4Exercises {
 	 *                     the list from left to right
 	 */
 	public static String[] listOfRecordBreakers(List cList) {
-		// TODO: implement this
-		// 1. keep track of the highest score seen so far
-		// 2. keep track of the names of competitors who had the highest score seen so far
-		// 3. traverse the list from left to right
-		// 4. update the highest score seen so far and the names of competitors who had the highest score seen so far
-		// 5. return the names of competitors who had the highest score seen so far
+		//make a temp string array of the size of the list. 
+		//store the names of the competitors who had the highest score seen so far
+		//at some point while traversing the list from left to right
 
-		int highestScore = 0;
+		//WHO CARES ABOUT MEMORY MANAGEMENT RAAAAHHHHH
 		String[] recordBreakers = new String[cList.size()];
+		int bestScore = 0;
+		int r = 0; 
+
+
 		for (int i = 0; i < cList.size(); i++) {
-			Competitor c = cList.get(i);
-			if (c.getScore() > highestScore) {
-				highestScore = c.getScore();
-				recordBreakers[numRecordBreakers] = c.getName();
+			if (cList.get(i).getScore() > bestScore) {
+				bestScore = cList.get(i).getScore();
+				recordBreakers[r] = cList.get(i).getName();
+				r++;
 			}
 		}
-		
+		// we have to make an array of the correct size, smh. 
+		//turns out we do care about memory management (rahhh.. *sigh*)
+		String[] result = new String[r];
+		for (int i = 0; i < r; i++) {
+			result[i] = recordBreakers[i];
+		}
 
-		return recordBreakers;
+		return result;
 	}
 
 }

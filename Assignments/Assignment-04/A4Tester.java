@@ -8,11 +8,11 @@ public class A4Tester {
 		
 		/* Part 1: Using the List ADT */		
 		testCompetitorsCount();
-		// testCountScoresAboveX();
-		// testDistanceAway();
-		// testGetBestCompetitorName();
-		// testNumberTimesRecordBroken();
-		// testListOfRecordBreakers();
+		testCountScoresAboveX();
+		testDistanceAway();
+		testGetBestCompetitorName();
+		testNumberTimesRecordBroken();
+		testListOfRecordBreakers();
 		
 		/* Part 2: Implementing the Generic Stack ADT */
 		// testStackOperations();
