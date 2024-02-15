@@ -15,8 +15,8 @@ public class A4Tester {
 		testListOfRecordBreakers();
 		
 		/* Part 2: Implementing the Generic Stack ADT */
-		// testStackOperations();
-		// testStackIsGeneric();
+		testStackOperations();
+		testStackIsGeneric();
 		
 		System.out.println("Passed " + testPassCount + " / " + testCount + " tests");
 	}
@@ -326,6 +326,133 @@ public class A4Tester {
 		
 		// Write more of your own tests here
 
+		result = testStack.pop();
+		displayResults(result.equals(2), "pop works after initial push");
+		displayResults(testStack.isEmpty(), "stack empty after initial pop");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+		
+		testStack.push(5);
+		testStack.push(7);
+		result = testStack.peek();
+		displayResults(result.equals(7), "peek works after two pushes");
+		result = testStack.pop();
+		displayResults(result.equals(7), "pop works after two pushes");
+		result = testStack.pop();
+		displayResults(result.equals(5), "pop works after two pushes");
+		displayResults(testStack.isEmpty(), "stack empty after two pops");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+		
+		testStack.push(3);
+		testStack.push(8);
+		result = testStack.pop();
+		displayResults(result.equals(8), "pop works after two pushes");
+		result = testStack.pop();
+		displayResults(result.equals(3), "pop works after two pushes");
+		displayResults(testStack.isEmpty(), "stack empty after two pops");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+
+
+
+		//test peek
+		testStack.push(3);
+		testStack.push(8);
+		result = testStack.peek();
+		displayResults(result.equals(8), "peek works after two pushes");
+		result = testStack.pop();
+		displayResults(result.equals(8), "pop works after two pushes");
+		result = testStack.peek();
+		displayResults(result.equals(3), "peek works after two pushes");
+		result = testStack.pop();
+		displayResults(result.equals(3), "pop works after two pushes");
+		displayResults(testStack.isEmpty(), "stack empty after two pops");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+
+		//test popAll
+		testStack.push(3);
+		testStack.push(8);
+		testStack.popAll();
+		displayResults(testStack.isEmpty(), "stack empty after popAll");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+
+		//test popAll with multiple items
+		testStack.push(3);
+		testStack.push(8);
+		testStack.push(1);
+		testStack.push(5);
+		testStack.push(7);
+		testStack.popAll();
+		displayResults(testStack.isEmpty(), "stack empty after popAll");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null when stack is empty");
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty");
+
+		// Write more of your own tests here
+		// Test pushing null
+		testStack.push(null);
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null after pushing null");
+		result = testStack.pop();
+		displayResults(result == null, "pop returns null after pushing null");
+
+		// Test popping from a stack with only one item
+		testStack.push(1);
+		testStack.pop();
+		displayResults(testStack.isEmpty(), "stack empty after popping single item");
+
+		// Test peeking at an empty stack after having added and removed items
+		testStack.push(1);
+		testStack.pop();
+		result = testStack.peek();
+		displayResults(result == null, "peek returns null when stack is empty after pop");
+
+		// Test pushing and popping multiple items in a different order
+		testStack.push(1);
+		testStack.push(2);
+		testStack.pop();
+		result = testStack.peek();
+		displayResults(result.equals(1), "peek returns first item after second item popped");
+
+		// Test pushing and popping a large number of items
+		for (int i = 0; i < 1000; i++) {
+			testStack.push(i);
+		}
+		for (int i = 999; i >= 0; i--) {
+			result = testStack.pop();
+			displayResults(result.equals(i), "pop returns correct item after pushing and popping large number of items");
+		}
+
 	}
 	
 	public static void testStackIsGeneric() {
@@ -354,8 +481,83 @@ public class A4Tester {
 		displayResults(result3.equals(9.1), "Double Stack");		
 
 		// Write more of your own tests here
-			
-	}
+		//TEST PEEK
+		result1 = s1.peek();
+		displayResults(result1.equals(3), "Peek works for Integer Stack");
+		result2 = s2.peek();
+		displayResults(result2.equals("CSC"), "Peek works for String Stack");
+		result3 = s3.peek();
+		displayResults(result3.equals(5.5), "Peek works for Double Stack");
+
+
+		//TEST POPALL
+		s1.popAll();
+		displayResults(s1.isEmpty(), "popAll works for Integer Stack");
+		s2.popAll();
+		displayResults(s2.isEmpty(), "popAll works for String Stack");
+		s3.popAll();
+		displayResults(s3.isEmpty(), "popAll works for Double Stack");
+		//TEST PEEK AFTER POPALL
+		result1 = s1.peek();
+		displayResults(result1 == null, "Peek returns null for Integer Stack after popAll");
+
+
+		//TEST POPALL WITH MULTIPLE ITEMS
+		s1.push(3);
+		s1.push(8);
+		s1.push(1);
+		s1.push(5);
+		s1.push(7);
+
+		s2.push("CSC");
+		s2.push("ENGR");
+		s2.push("CSC");
+		s2.push("ENGR");
+
+		s3.push(5.5);
+		s3.push(9.1);
+		s3.push(5.5);
+
+		s1.popAll();
+		displayResults(s1.isEmpty(), "popAll works for Integer Stack with multiple items");
+		s2.popAll();
+		displayResults(s2.isEmpty(), "popAll works for String Stack with multiple items");
+		s3.popAll();
+		displayResults(s3.isEmpty(), "popAll works for Double Stack with multiple items");
+		
+		// Test with different types of objects
+		A4Stack<Integer> integerStack = new A4Stack<Integer>();
+		integerStack.push(1);
+		displayResults(integerStack.peek() == 1, "Integer Stack works correctly");
+
+		A4Stack<String> stringStack = new A4Stack<String>();
+		stringStack.push("test");
+		displayResults(stringStack.peek().equals("test"), "String Stack works correctly");
+
+		A4Stack<Double> doubleStack = new A4Stack<Double>();
+		doubleStack.push(1.1);
+		displayResults(doubleStack.peek() == 1.1, "Double Stack works correctly");
+
+		// Test with custom objects
+		class TestObject {
+			int value;
+			TestObject(int value) {
+				this.value = value;
+			}
+		}
+
+		A4Stack<TestObject> objectStack = new A4Stack<TestObject>();
+		TestObject testObject = new TestObject(1);
+		objectStack.push(testObject);
+		displayResults(objectStack.peek() == testObject, "Object Stack works correctly");
+
+		// Test with null
+		A4Stack<Object> nullStack = new A4Stack<Object>();
+		nullStack.push(null);
+		displayResults(nullStack.peek() == null, "Null Stack works correctly");
+
+
+	}	
 	
 	public static void displayResults (boolean passed, String testName) {
 		testCount++;

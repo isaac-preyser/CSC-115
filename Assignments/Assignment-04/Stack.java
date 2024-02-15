@@ -1,4 +1,4 @@
-interface Stack<T> {
+public interface Stack<T> {
 	
 	/*
 	 * Purpose: insert an item onto the top of the stack
