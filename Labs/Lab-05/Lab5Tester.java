@@ -33,13 +33,13 @@ public class Lab5Tester {
 		Stack stk = new StackArrayBased();
 		String result = "";
 		
-		// TODO: complete the implementation
 		// WITHOUT declaring any other variables
 
 
 		//push each character in str onto the stack
 		for (int i = 0; i < str.length(); i++) {
 			stk.push(str.charAt(i)); //can I use C-style string syntax/indexing for this? 
+			//I hate java strings
 		}
 		
 		//pop each character off the stack and add it to the result string
@@ -61,12 +61,13 @@ public class Lab5Tester {
 		Stack stk = new StackArrayBased();
 		char c = ' ';
 		
-		// TODO: complete the implementation
+	
 		// WITHOUT declaring any other variables
 		
 		while (str.length() > 0) {
 			c = str.charAt(0); //get the first character in the string
 			str = str.substring(1); //move to the next character in the string
+			//the above essentially pops the first character off the front of the string
 			if (c == '(') {
 				stk.push(c);
 			} else if (c == ')') {

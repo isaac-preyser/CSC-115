@@ -188,7 +188,6 @@ public class A3LinkedList implements A3List {
 	}
 	
 	public void interleave(A3LinkedList other) {
-		// TODO: implement this
 		//essentially, for every second item in the list, swap the items in listA and listB. 
 		
 		//print out the lists: 

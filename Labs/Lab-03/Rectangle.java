@@ -57,7 +57,6 @@ public class Rectangle implements Shape {
 		return "Rectangle of dimensions: " + length + " by " + height + " at Point: " + position;
 	}
 
-	//TODO: implement shape.contains, shape.area, shape.perimeter
 
 	public boolean contains(Point p) {
 		//a point is defined as the bottom left corner of the rectangle. 

@@ -1,3 +1,5 @@
+@SuppressWarnings("rawtypes")
+//the raw type error is getting mad because of our "List" class conflicting with java.utl.List
 public class A4Tester {
 	private static int testPassCount = 0;
 	private static int testCount = 0;
@@ -22,6 +24,7 @@ public class A4Tester {
 	}
 	
 
+	
 	public static void testCompetitorsCount() {
 		System.out.println("\nTesting competitorsCount...");
 		

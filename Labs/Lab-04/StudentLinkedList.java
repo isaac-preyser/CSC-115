@@ -30,14 +30,14 @@ public class StudentLinkedList implements StudentList {
 	}
 
 	public int size() {
-		// TODO: complete
+
 		//return the count
 		return count;
 
 	}
 
 	public void removeFront() {
-		// TODO: complete
+
 		//if the list is empty, do nothing
 		//else, remove the first node by setting the head to the next node
 		if(head != null) {
@@ -49,7 +49,7 @@ public class StudentLinkedList implements StudentList {
 	}
 
 	public boolean contains(Student s) {
-		// TODO: complete
+
 		//if the list is empty, return false
 		//else, iterate through the list and return true if the student is found
 		StudentNode tmp = head;

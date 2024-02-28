@@ -234,6 +234,36 @@ public class A5Tester {
 		displayResults(result==expected, "songs by "+artistToFind+" in list2");
 		
 		// Write more tests here
+		// Test with a list that contains multiple songs by the same artist
+		LinkedSongList list4 = new LinkedSongList();
+		Song[] songs4 = {s1, s1, s2, s2, s3, s3};
+		list4.buildFromArray(songs4);
+		artistToFind = new String("Taylor Swift");
+		result = list4.countSongsByArtist(artistToFind);
+		expected = 4; // There are four songs by Taylor Swift
+		displayResults(result==expected, "songs by "+artistToFind+" in list4 with duplicate songs");
+
+		// Test with a list that contains songs by different artists
+		LinkedSongList list5 = new LinkedSongList();
+		Song[] songs5 = {new Song("Hello", "Adele", 295), new Song("Shape of You", "Ed Sheeran", 233), s1, s2, s3};
+		// Test with a list that does not contain a song by the artist
+		LinkedSongList list6 = new LinkedSongList();
+		Song[] songs6 = {s1, s2, s3};
+		list6.buildFromArray(songs6);
+		artistToFind = new String("John Lennon");
+		result = list6.countSongsByArtist(artistToFind);
+		expected = 0; // There are no songs by John Lennon
+		displayResults(result==expected, "songs by "+artistToFind+" in list6 that does not contain a song by the artist");
+
+		// Test with an empty list
+		LinkedSongList list7 = new LinkedSongList();
+		Song[] songs7 = {};
+		list7.buildFromArray(songs7);
+		artistToFind = new String("Taylor Swift");
+		result = list7.countSongsByArtist(artistToFind);
+		expected = 0; // There are no songs in the list
+		displayResults(result==expected, "songs by "+artistToFind+" in an empty list");
+		
 		
 		System.out.println();
 	}
@@ -395,7 +425,7 @@ public class A5Tester {
 		expected = s5;
 		displayResults(result.equals(expected), "longest song in list3");
 		
-		// TODO: add more tests here
+		
 
 		// Test with a list that contains duplicate songs
 		LinkedSongList list4 = new LinkedSongList();
@@ -490,7 +520,6 @@ public class A5Tester {
 		expected = 219+225+237+243+310+272+201+253+263+245;
 		displayResults(result==expected, "total duration of songs until song by "+artistToFind);
 		
-		// TODO: add more tests here
 
 		// Test with a list that contains duplicate songs
 		LinkedSongList list4 = new LinkedSongList();

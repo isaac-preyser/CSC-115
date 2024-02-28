@@ -27,7 +27,7 @@ public class Lab2 {
 	 * Returns: boolean - true if grade is above threshold, false otherwise
 	 * Preconditions: s is not null
 	 */
-	// TODO: implement isGradeAbove
+	
 	public static boolean isGradeAbove(Student s, int threshold) {
 		return s.getGrade() > threshold;
 	}
@@ -39,7 +39,6 @@ public class Lab2 {
 	 * Returns: String[] - array of sIDs
 	 * Preconditions: students is not null and contains no null elements
 	 */
-	// TODO: implement getClasslist
 	public static String[] getClasslist(Student[] students) {
 		String[] result = new String[students.length];
 		for (int i = 0; i < students.length; i++) {
@@ -56,7 +55,6 @@ public class Lab2 {
 	 * Returns: int - the number of students with a grade above threshold
 	 * Preconditions: students is not null and contains no null elements
 	 */
-	// TODO: implement countAbove
 	// HINT: you should be using the isGradeAbove method!
 
 	public static int countAbove(Student[] students, int threshold) {
@@ -78,7 +76,7 @@ public class Lab2 {
 	 * Returns: double - the average grade
 	 * Preconditions: students is not null and contains no null elements
 	 */
-	// TODO: implement getClassAverage
+
 	// HINT: you can use the isGradeAbove method again
 	public static double getClassAverage(Student[] students) {
 		int sum = 0;
@@ -106,7 +104,6 @@ public class Lab2 {
 	 * Preconditions: students is not null and contains no null elements
 	 *                Student s is not already contained within students
 	 */
-	// TODO: implement registerStudent
 	// PLEASE LET US USE LIST<T> FOR THIS 
 	public static Student[] registerStudent(Student[] students, Student s){
 		Student[] result = new Student[students.length + 1];

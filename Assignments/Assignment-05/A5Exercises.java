@@ -38,7 +38,8 @@ public class A5Exercises {
 			return 0;
 		} else {
 			if (theList.get(position) % 2 != 0) {
-				return 1 + countOddHelper(theList, position + 1);
+				return 1 + countOddHelper(theList, position + 1); //why the frick did I do it this way
+				//like bruh just use a counter argument
 			} else {
 				return countOddHelper(theList, position + 1);
 			}

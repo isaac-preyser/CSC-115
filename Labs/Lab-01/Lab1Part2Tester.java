@@ -16,9 +16,6 @@ public class Lab1Part2Tester {
 
 		// 1)
 		// Tests constructor with no arguments, getSID and getGrade
-		// TODO: once you have completed the getSID and getGrade methods
-		// uncomment the following to test your implementation
-	
 	
 		Student s1 = new Student();
 		System.out.println("sID of student with default constructor: " + s1.getSID());
@@ -33,9 +30,6 @@ public class Lab1Part2Tester {
 
 	public static void testSettersAndGetters(){
 		// 2) 
-		// TODO: implement and then call the setSID and setGrade methods
-		// Hint: use getSID and getGrade methods to get the updated values
-		
 		System.out.println("\nOriginal information for student:");
 		Student s2 = new Student("V00923094", 85);
 		System.out.println("sID of student: " + s2.getSID());
@@ -55,7 +49,6 @@ public class Lab1Part2Tester {
 
 	public static void testToString() {
 		// 3)
-		// TODO: once you have written toString in the Student class,
 		Student s1 = new Student("Mike Wasowski", -43);
 		System.out.println(s1.toString()); //give me printf back please
 		Student s2 = new Student("Bob", 54);

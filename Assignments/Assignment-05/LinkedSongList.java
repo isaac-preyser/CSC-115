@@ -160,7 +160,6 @@ public class LinkedSongList {
 	 * Returns: boolean - true if a song by artistName is found
 	 */
 	public boolean containsArtist(String artistName) {
-		// TODO: Call a recursive helper method
 		SongNode cur = head;
 		return containsArtistRec(cur, artistName); // so it compiles
 	}
@@ -184,7 +183,6 @@ public class LinkedSongList {
 	 *                or null if the list is empty
 	 */
 	public Song longestSong() {
-		// TODO: Call a recursive helper method
 		SongNode cur = head;
 		return longestSongRec(cur, null); 
 	}
@@ -211,7 +209,6 @@ public class LinkedSongList {
 	 *               artistName is found.
 	 */
 	public int totalTimeUntilArtist(String artistName) {
-		// TODO: Call a recursive helper method
 		SongNode cur = head;
 		return totalTimeUntilArtistRec(cur, artistName, 0); // so it compiles
 	}
