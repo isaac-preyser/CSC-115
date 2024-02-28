@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 public class IntegerLinkedList {
 
 	private IntegerNode	head;
@@ -270,6 +272,10 @@ public class IntegerLinkedList {
 	 * Returns: boolean - true if sorted, false otherwise
 	 * Note: an empty list is considered sorted
 	 */
+
+
+
+
 	public boolean isSortedAscending() {
 		return isSortedAscendingRec(head);
 	}  
@@ -286,6 +292,7 @@ public class IntegerLinkedList {
 			return isSortedAscendingRec(n.next);
 		}
 	}
+
 	
 }
 
