@@ -30,19 +30,28 @@ public class ListTester {
 
 		int returned = 0;
 		
-		returned = myList.get(2);
-		displayResults(returned==20, "get at position 2");
+		try {
+			returned = myList.get(2);
+			displayResults(returned==20, "get at position 2");
+		} catch (OffListException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			displayResults(false, "get at position 2");
+		}
+		
 		
 		
 		//out of bounds on a zero-indexed list of length 3. 
 		//the list must be elongated, or the call should be changed. 
 		try {
 			returned = myList.get(3);
+			displayResults(false, "get at position 3");
 		} catch (Exception e) {
 			System.out.println("Exception: "+ e + " (array out of bounds)");
 			//code updated to handle the exception. 
 			//we should have the test reflect this. 
-			displayResults(false, "get at position 3");
+			//we should hit this exception EVERY TIME. 
+			displayResults(true, "get at position 3");
 		}
 		
 		
