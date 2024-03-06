@@ -55,9 +55,9 @@ public class LinkedList<T> {
 	 * Throws: OffListException if position is out of range
 	 */
 	public T get (int position) throws OffListException {
-		if (position < 0 || position >= size) {
-			throw new OffListException();
-		}
+		// if (position < 0 || position >= size) {
+		// 	throw new OffListException();
+		// }
 		Node<T> cur = head;
 		for(int i = 0; i < position; i++) {
 			cur = cur.next;

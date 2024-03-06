@@ -4,10 +4,8 @@
         "scrollbar.shadow": "#00000000"
     },
     "java.project.sourcePaths": [
-        "Labs/Lab-06",
-        "Assignments/Assignment-05",
-        "Assignments/Assignment-04",
-        "Module-9"
+        "Assignments/Assignment-06",
+        "Labs/Lab-07"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }

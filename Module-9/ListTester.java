@@ -48,6 +48,7 @@ public class ListTester {
 			displayResults(false, "get at position 3");
 		} catch (Exception e) {
 			System.out.println("Exception: "+ e + " (array out of bounds)");
+			System.out.println("Message: " + e.getMessage());
 			//code updated to handle the exception. 
 			//we should have the test reflect this. 
 			//we should hit this exception EVERY TIME. 

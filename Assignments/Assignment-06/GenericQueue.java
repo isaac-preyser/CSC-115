@@ -35,6 +35,9 @@ public class GenericQueue<T> implements Queue<T> {
 	}
 
 	public T dequeue() throws QueueEmptyException {
+		if (front == null) {
+			throw new QueueEmptyException();
+		}
 		T val = front.getValue();
 		front = front.getNext();
 		if (front == null) {
@@ -44,6 +47,10 @@ public class GenericQueue<T> implements Queue<T> {
 	}
 
 	public T peek() throws QueueEmptyException  {
+		if (front == null) {
+			throw new QueueEmptyException();
+		}
+
 		return front.getValue();
 	}
 

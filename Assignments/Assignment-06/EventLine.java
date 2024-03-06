@@ -23,7 +23,7 @@ public class EventLine {
 	 * Returns void - nothing
 	 */
 	public void enterLine(Person p) {
-		// TODO: implement this
+		lineup.enqueue(p);
 	}
 	
 	/*
@@ -32,8 +32,7 @@ public class EventLine {
 	 * Returns: int - number of people in line
 	 */
 	public int peopleInLine() {
-		// TODO: implement this
-		return -1; // so it compiles
+		return lineup.size();
 	}
 	
 	/*
@@ -44,9 +43,13 @@ public class EventLine {
 	 * Returns: Person - the person who gets their ticket
 	 *                   and is no longer waiting in line
 	 */
-	public Person handleOne() {
-		// TODO: implement this
-		return null; // so it compiles
+	public Person handleOne() throws QueueEmptyException {
+		if (lineup.isEmpty()){
+			return null;
+		}
+		
+		return lineup.dequeue();
+
 	}
 	
 	/*
@@ -57,9 +60,19 @@ public class EventLine {
 	 * Returns int - the number of people who were successfully
 	 *               able to be removed from the line
 	 */
-	public int handleMultiple(int num) {
-		// TODO: implement this
-		return -1; // so it compiles
+	public int handleMultiple(int num) throws QueueEmptyException{
+		int count = 0;
+		Person temp = null;
+		for (int i = 0; i < num; i++){
+			temp = handleOne();
+			if (temp != null){
+				count++;
+			}
+			else{
+				break;
+			}
+		}
+		return count; 
 	}
 	
 	/*
@@ -69,9 +82,33 @@ public class EventLine {
 	 *             int pos - the position they are trying to get to
 	 * Returns boolean - true if person added to line, false otherwise
 	 */
-	public boolean premiumEntry(Person p, int pos) {
-		// TODO: implement this
-		return false; // so it compiles
+	public boolean premiumEntry(Person p, int pos) throws QueueEmptyException{
+		//PLAN: 
+		//assume zero-based indexing.
+		//1. If the position is greater than the number of people in line, return false
+		//2. If the position is less than 0, return false
+		//3. Else, add the person to the back of the line and "shuffle" the line so the person is in the correct position. 
+		//one way of doing this is as follows: 
+		//create a temporary queue, and add the first person from the original queue to the temporary queue. repeat this until the position (really pos - 1) is reached. 
+		//then add the person to the temporary queue, and then add the rest of the people from the original queue to the temporary queue.
+		//et voila, nous ici finis! (I dont speak french)
+		//4. Return true
+
+		if (pos > lineup.size() || pos < 0){
+			return false;
+		}
+		else{
+			GenericQueue<Person> temp = new GenericQueue<Person>();
+			for (int i = 0; i < pos; i++){
+				temp.enqueue(lineup.dequeue());
+			}
+			temp.enqueue(p);
+			while (!lineup.isEmpty()){
+				temp.enqueue(lineup.dequeue());
+			}
+			lineup = temp;
+			return true;
+		}
 	}
 	
 }

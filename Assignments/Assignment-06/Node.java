@@ -7,7 +7,10 @@ public class Node<T> {
 		this.next = null;
 	}
 
-	public T getValue() {
+	public T getValue() throws QueueEmptyException {
+		if (this.value == null) {
+			throw new QueueEmptyException();
+		}
 		return this.value;
 	}
 

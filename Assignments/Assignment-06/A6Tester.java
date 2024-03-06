@@ -4,7 +4,7 @@ public class A6Tester {
 	
 	public static void main(String[] args) {
 		queueTests();
-		// eventLineTests();
+		eventLineTests();
 		
 		System.out.println("Passed " + testPassCount + " / " + testCount + " tests");
 	}
