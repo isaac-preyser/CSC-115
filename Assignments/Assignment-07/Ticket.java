@@ -45,7 +45,7 @@ public class Ticket implements Comparable<Ticket>{
 	 * Parameters: Ticket other
 	 * Precondition: other is not null
 	 * Returns: true if this ticket is the same as other, false otherwise
-/workspaces/CSC-115/Labs/Lab-03	 */
+	*/
 	public boolean equals(Ticket other) {
 		return this.eventName.equals(other.eventName)
 			&& this.ticketType == other.ticketType

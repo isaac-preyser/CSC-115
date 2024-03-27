@@ -96,7 +96,8 @@ public class HeapPriorityQueue implements PriorityQueue {
 		int left_child_idx = 2 * index + 1;
 		int right_child_idx = 2 * index + 2;
 
-		//if the right child is out of bounds, assume the left child is the smallest
+		//if the right child is out of bounds, assume the left child is the smallest (epic level one-liner btw)
+		//if the left child is smaller than the right child, the left child is the smallest
 		int min_child_idx = right_child_idx >= currentSize || storage[left_child_idx].compareTo(storage[right_child_idx]) < 0 ? left_child_idx : right_child_idx; 
 		//if the current element is greater than its smallest child, swap them
 		if (storage[index].compareTo(storage[min_child_idx]) > 0) {

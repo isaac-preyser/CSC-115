@@ -65,7 +65,7 @@ public class ConcertLine {
 	 */
 	public Attendee nextAttendee() {
 		try {
-			return (Attendee) attendees.removeMin(); //fix using a cast lol
+			return (Attendee) attendees.removeMin(); //fix by using a cast lol
 		} catch (HeapEmptyException e) {
 			return null;
 		}

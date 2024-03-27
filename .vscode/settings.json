@@ -4,9 +4,9 @@
         "scrollbar.shadow": "#00000000"
     },
     "java.project.sourcePaths": [
-        "Labs/Lab-05",
-        "Assignments/Assignment-07",
-        "Module-14"
+        "Module-15",
+        "Labs/Lab-09"
     ],
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.explorer.showNonJavaResources": true
 }
