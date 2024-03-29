@@ -121,13 +121,13 @@ public class RefBasedBinarySearchTree extends RefBasedBinaryTree {
         try {
             System.out.println("max: " + myTree.getMax());
         } catch (TreeEmptyException e) {
-            System.out.println("Tree is empty");
+            System.out.println("Exception: Tree is empty");
         }
 
         try {
             System.out.println("max: " + emptyTree.getMax());
         } catch (TreeEmptyException e) {
-            System.out.println("Tree is empty");
+            System.out.println("Exception: Tree is empty");
         }
 
 

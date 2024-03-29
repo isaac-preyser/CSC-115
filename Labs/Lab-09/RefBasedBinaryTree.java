@@ -151,6 +151,56 @@ public class RefBasedBinaryTree implements BinaryTree {
             return s;
         }
     }
+
+
+     /* 
+     * Method name: sum 
+     * Purpose: computes the sum of all elements in this BinaryTree 
+     * Parameters: none 
+     * Returns: int – the sum 
+     */
+    //honestly, just perform a traversal and pass the sum along. 
+    public int sum() {
+        return sum(root);
+    }
+
+    private int sum(TreeNode node){
+        if (node == null) {
+            return 0;
+        }
+        return node.getValue() + sum(node.getLeft()) + sum(node.getRight());
+    }
+
+    public Boolean find(int value){
+        return find(root, value);
+    }
+    private Boolean find(TreeNode node, int value){
+        if (node == null) {
+            return false;
+        }
+        if (node.getValue() == value) {
+            return true;
+        }
+        return find(node.getLeft(), value) || find(node.getRight(), value);
+    }
+
+    public int getMax() throws TreeEmptyException {
+        if (root == null) {
+            throw new TreeEmptyException();
+        }
+        return getMax(root);
+    }
+    //not a binary search tree so I'll have to pass in the max value
+    private int getMax(TreeNode node) {
+        if (node == null){
+            return 0;
+        }
+        //return the highest value of the three: the current node, the left subtree, or the right subtree. 
+        return Math.max(node.getValue(), Math.max(getMax(node.getLeft()), getMax(node.getRight())));
+    }
+
+    
+    
     
     
     public static void main(String[] args) {
@@ -159,6 +209,15 @@ public class RefBasedBinaryTree implements BinaryTree {
         RefBasedBinaryTree myTree = new RefBasedBinaryTree();
         for(int i=2; i<8; i++) {
             myTree.insert(i);
+        }
+        System.out.println(myTree.find(0));//should return false
+        System.out.println(myTree.find(2));//should return true
+
+        System.out.println(myTree.sum()); //should return 27
+        try {
+            System.out.println(myTree.getMax()); //should return 7
+        } catch (TreeEmptyException e) {
+            System.out.println("Tree is empty");
         }
     }
     
