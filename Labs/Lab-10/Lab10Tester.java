@@ -56,7 +56,7 @@ public class Lab10Tester {
         // TODO 1: implement insertCollisions in HashTable.java
         //     uncomment the following block of tests, compile and run
 
-		/*
+		
 		try {
 			table.insertCollisions(s0);
 			table.insertCollisions(s1);
@@ -109,12 +109,12 @@ public class Lab10Tester {
 		} catch (CollisionException e) {
 			displayResults (false, "CollisionException should not have been thrown");
 		}
-		*/
+		
 
         // TODO 2: implement getCollisions in HashTable.java
         //     uncomment the following block of tests, compile and run
 
-		/*
+		
 		try {
 			int grade = table.getCollisions("abc");
 			displayResults(grade==50, "get successful");
@@ -143,7 +143,7 @@ public class Lab10Tester {
 			displayResults (true, "KeyNotFoundException should have been thrown");
 		}
 
-		*/
+		
 	}
 
 	public static void testLinearProbing() {
@@ -166,7 +166,7 @@ public class Lab10Tester {
         //  given the hash indices above, determine which index each Student should be inserted at
         //  Compile and run to test your function - does it match your trace?
 
-		/*
+		
 		try {
 			table.insertLinearProbing(s0);
 			table.insertLinearProbing(s1);
@@ -205,12 +205,12 @@ public class Lab10Tester {
 			displayResults (false, "No other Exception should not have been thrown");
 		}
 		
-		*/
+		
 		
 		// TODO 4: implement getLinearProbing in HashTable.java
         //     uncomment the following block of tests
 
-		/*
+		
 
 		try {
 			int grade = table.getLinearProbing("abc");
@@ -240,13 +240,13 @@ public class Lab10Tester {
 			displayResults (true, "KeyNotFoundException should have been thrown");
 		}
 		
-		*/
+		
 		
         // TODO 5: Uncomment the following block of tests. Before compiling and running:
         //  given the hash indices above, determine which index each Student should be inserted at
         //  Compile and run to test your function - does it match your trace?
 		
-		/*
+		
 
 		Hashtable notFull = new Hashtable();
 		try {
@@ -287,7 +287,7 @@ public class Lab10Tester {
 			displayResults (true, "KeyNotFoundException should have been thrown");
 		}
 		
-		*/
+		
 	}
 
 }

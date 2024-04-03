@@ -19,7 +19,33 @@ private static final int TABLE_SZ = 7; // a prime number
 	 *          CollisionException - if inserting a new key into table at index that is full
 	 * Returns: nothing
 	 */
-	// TODO: complete this function
+
+	public void insertCollisions(Student s) throws TableFullException, CollisionException{
+		// find the index to insert s 
+		int idx = s.hashCode() % TABLE_SZ;
+		// if the hashcodes are equal at the index, update the grade (don't check if the value is null). 
+		if (table[idx] != null && table[idx].hashCode() == s.hashCode()) {
+			table[idx].setGrade(s.getGrade());
+			return;
+		} 
+		//if the table is full, throw a TableFullException
+		if (count == TABLE_SZ) {
+			throw new TableFullException();
+		}
+
+		// if the index is empty, insert s
+		if (table[idx] == null) {
+			table[idx] = s;
+			count++;
+			return;
+		}
+		// if the index is full, throw a CollisionException
+		if (table[idx] != null) {
+			throw new CollisionException();
+		} 
+
+		
+	}
 
 
 	/* MethodName: getCollisions
@@ -28,7 +54,19 @@ private static final int TABLE_SZ = 7; // a prime number
 	 * Throws:  KeyNotFoundException  - if Student with sid is not found in table
 	 * Returns: int - the grade of Student with sid
 	 */
-	// TODO: complete this function
+	public int getCollisions(String sid) throws KeyNotFoundException{
+		int grade = -1; // return -1 if not found
+		// find the index to insert s
+		int idx = sid.hashCode() % TABLE_SZ;
+		// if the hashcodes are equal at the index, return the grade
+		if (table[idx] != null && table[idx].getSID().hashCode() == sid.hashCode()) {
+			grade = table[idx].getGrade();
+			return grade;
+		} else {
+			//throw a KeyNotFoundException
+			throw new KeyNotFoundException();
+		} 
+	}
 
 
 	/* MethodName: insertLinearProbing
@@ -38,7 +76,35 @@ private static final int TABLE_SZ = 7; // a prime number
 	 * Returns: nothing
 	 */
 	// TODO: complete this function
+	public void insertLinearProbing(Student s) throws TableFullException{
+		// find the index to insert s 
+		int idx = s.hashCode() % TABLE_SZ;
+		// if the hashcodes are equal at the index, update the grade (don't check if the value is null). 
+		if (table[idx] != null && table[idx].hashCode() == s.hashCode()) {
+			table[idx].setGrade(s.getGrade());
+			return;
+		} 
+		//if the table is full, throw a TableFullException
+		if (count == TABLE_SZ) {
+			throw new TableFullException();
+		}
 
+		// if the index is empty, insert s
+		if (table[idx] == null) {
+			table[idx] = s;
+			count++;
+			return;
+		}
+		// if the index is full, use linear probing to find the next empty index
+		if (table[idx] != null) {
+			int i = idx;
+			while (table[i] != null) {
+				i = (i + 1) % TABLE_SZ;
+			}
+			table[i] = s;
+			count++;
+		} 
+	}
 
 
 
@@ -49,6 +115,20 @@ private static final int TABLE_SZ = 7; // a prime number
 	 * Returns: int - the grade of Student with sid
 	 */
 	// TODO: complete this function
+	int getLinearProbing(String sid) throws KeyNotFoundException{
+		int grade = -1; // return -1 if not found
+		// find the index to insert s
+		int idx = sid.hashCode() % TABLE_SZ;
+		for (int i = 0; i < TABLE_SZ; i++){
+			// if the hashcodes are equal at the index, return the grade 
+			if (table[(idx + i) % TABLE_SZ] != null && table[(idx + i) % TABLE_SZ].getSID().hashCode() == sid.hashCode()) {
+				grade = table[(idx + i) % TABLE_SZ].getGrade();
+				return grade;
+			}
+		}
+		//if we exit this loop without returning a grade, throw the exception. 
+		throw new KeyNotFoundException(); 
+	}
 
 	/*
 	 * Purpose: returns the number of elements in this Hashtable
